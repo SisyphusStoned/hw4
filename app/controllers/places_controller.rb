@@ -16,6 +16,7 @@ class PlacesController < ApplicationController
   def create
     @place = Place.new
     @place["name"] = params["place"]["name"]
+    @place["user_id"] = sessions["user_id"]
     @place.save
     redirect_to "/places"
   end
